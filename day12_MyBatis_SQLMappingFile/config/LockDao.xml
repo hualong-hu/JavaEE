@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bigjava.dao.LockDao">
+    <select id="getLockById" resultMap="myLock">
+        select `key`.*,`lock`.id lid,`lock`.lockName from mybatis_0228.t_key `key`
+               left join mybatis_0228.t_lock `lock`
+                 on `lock`.id =`key`.lockId
+        where `lock`.id = #{id}
+    </select>
+    <resultMap id="myLock" type="org.bigjava.bean.Lock">
+        <id property="id" column="lid"/>
+        <result property="lockName" column="lockName"/>
+        <!--
+            collection标签：定义集合元素的封装
+                ofType="" 指定集合里面元素类型
+                property="" 指定哪个属性是集合属性
+
+         -->
+        <collection property="keys" ofType="org.bigjava.bean.Key">
+            <id property="id" column="id"/>
+            <result property="keyName" column="keyName"/>
+        </collection>
+    </resultMap>
+</mapper>

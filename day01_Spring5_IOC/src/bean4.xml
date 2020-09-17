@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!--  在bean标签中有属性（scope）用于设置单实例（默认singleton）还是多实例（prototype）  -->
+    <bean id="student" class="org.bigjava.bean.Student" scope="prototype">
+        <!--    注入数组类型属性    -->
+        <property name="course">
+            <array>
+                <value>java</value>
+                <value>mysql</value>
+                <value>JavaScript</value>
+            </array>
+        </property>
+        <!--    注入list集合属性    -->
+        <property name="name">
+            <list>
+                <value>刘雯静</value>
+                <value>小刘</value>
+                <value>小雯</value>
+                <value>小静</value>
+            </list>
+        </property>
+        <!--    注入msp集合属性    -->
+        <property name="score">
+            <map>
+                <entry key="刘雯静" value="100"/>
+                <entry key="小刘" value="99"/>
+                <entry key="小雯" value="98"/>
+                <entry key="小静" value="97"/>
+            </map>
+        </property>
+        <!--    注入set集合属性    -->
+        <property name="teacher">
+            <set>
+                <value>老周</value>
+                <value>饶兵来</value>
+                <value>黄羚</value>
+            </set>
+        </property>
+
+        <!--    注入list集合属性，值是一个对象    -->
+        <property name="coursers">
+            <list>
+                <ref bean="cou1"/>
+                <ref bean="cou2"/>
+            </list>
+        </property>
+        <!--    2.注入提取出来的list集合属性    -->
+        <property name="books" ref="list"/>
+    </bean>
+    <!--  1.提取list集合类型属性注入  -->
+    <util:list id="list">
+        <ref bean="book1"/>
+        <ref bean="book2"/>
+    </util:list>
+
+    <bean id="cou1" class="org.bigjava.bean.Courser">
+        <property name="name" value="java"/>
+        <property name="score" value="99.2"/>
+    </bean>
+    <bean id="cou2" class="org.bigjava.bean.Courser">
+        <property name="name" value="js"/>
+        <property name="score" value="85.3"/>
+    </bean>
+
+
+    <bean id="book1" class="org.bigjava.bean.Books">
+        <property name="name" value="php"/>
+        <property name="price" value="99.2"/>
+    </bean>
+    <bean id="book2" class="org.bigjava.bean.Books">
+        <property name="name" value="mysql"/>
+        <property name="price" value="85.3"/>
+    </bean>
+</beans>

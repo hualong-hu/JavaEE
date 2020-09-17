@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--该配置文件称为mybatis的全局配置文件，知道mybatis运行的-->
+
+<configuration>
+    <!--
+        1、properties:音乐外部配置文件
+            resource：从类路径下开始引用
+            url：引用磁盘路径或网络路径的资源
+    -->
+    <properties resource="mysql.properties"/>
+
+    <!--
+       2、setting是MyBatis中极为重要的调整设置，它们会改变 MyBatis 的运行时行为
+       mapUnderscoreToCamelCase：是否开启驼峰命名自动映射，
+           即从经典数据库列名 A_COLUMN 映射到经典 Java 属性名 aColumn。
+   -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!--
+        3、typeAliases:类起别名为常用的Javabean起别名
+            typeAlias：为一个Javabean起别名，别名默认就是类名，其不区分大小写，
+                        起别名之后，配置文件中就可以使用别名了
+            alias：指定一个别名
+            package：批量起别名，name：指定包名，默认别名就是类名
+
+            推荐使用全类名！！！！！！！！！！！！！
+    -->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="org.bigjava.bean.Employee" alias="employee"/>-->
+<!--        <package name="org.bigjava.bean"/>-->
+<!--    </typeAliases>-->
+
+    <!--
+          environments：配置多个环境
+            environment：配置一个具体的环境，必须有一个事务管理器(transactionManager)
+                        和一个数据源(dataSource)
+                default="development":默认使用哪个环境
+                id="development"：当前环境是唯一标识
+
+
+    -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--
+                配置数据库连接池
+                    ${ }：取出配置文件中的值
+            -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driverClass}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--  引入我们自己编写的每一个接口的实现文件  -->
+    <mappers>
+        <mapper class="org.bigjava.dao.EmployeeDaoAnnotation"/>
+        <!--    resource：表示从类路径下找资源    -->
+<!--        <mapper resource="EmployeeDao.xml"/>-->
+    </mappers>
+
+
+</configuration>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--  内部bean  -->
+    <bean id="employee" class="org.bigjava.bean.Employee">
+        <!--    设置两个普通属性    -->
+        <property name="name" value="刘雯静"/>
+        <property name="sex" value="女"/>
+        <!--     设置对象类型属性   -->
+        <property name="department">
+            <bean class="org.bigjava.bean.Department">
+                <property name="name" value="技术部"/>
+                <property name="num" value="1"/>
+            </bean>
+        </property>
+    </bean>
+
+    <!--  级联赋值  -->
+    <bean id="emp" class="org.bigjava.bean.Employee">
+        <property name="name" value="刘雯静"/>
+        <property name="sex" value="女"/>
+        <property name="department" ref="dep"/>
+    </bean>
+    <bean id="dep" class="org.bigjava.bean.Department">
+        <property name="name" value="人事部"/>
+        <property name="num" value="10"/>
+    </bean>
+
+
+</beans>

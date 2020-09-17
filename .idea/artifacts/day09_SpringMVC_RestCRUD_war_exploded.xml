@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day09_SpringMVC_RestCRUD:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/day09_SpringMVC_RestCRUD_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="day09_SpringMVC_RestCRUD/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day09_SpringMVC_RestCRUD" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/commons-logging-1.1.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-web-5.2.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-expression-5.2.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-webmvc-5.2.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-core-5.2.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-context-5.2.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-beans-5.2.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day08_SpringMVC_Out&amp;Put&amp;View/web/WEB-INF/lib/spring-aop-5.2.6.RELEASE.jar" />
+          <element id="library" level="module" name="hibernate-validator-5.0.0.CR2" module-name="day09_SpringMVC_RestCRUD" />
+          <element id="library" level="module" name="taglibs-standard-impl-1.2.1" module-name="day09_SpringMVC_RestCRUD" />
+          <element id="library" level="module" name="classmate-0.8.0" module-name="day09_SpringMVC_RestCRUD" />
+          <element id="library" level="module" name="jackson-annotations-2.11.1" module-name="day09_SpringMVC_RestCRUD" />
+          <element id="library" level="project" name="SpringMVC" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

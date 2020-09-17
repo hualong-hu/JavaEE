@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="day15_MyBatisPlus" />
+        <module name="day14_SSM" />
+        <module name="day17_Spring_Annotation" />
+        <module name="day19_Git" />
+        <module name="day16_MyBatisPlus" />
+        <module name="day18_SpringMVC_Annotation" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="day11" target="1.8" />
+      <module name="day13_maven" target="1.5" />
+      <module name="day14_Maven" target="1.7" />
+      <module name="day14_Maven1" target="1.5" />
+      <module name="day14_SSM" target="1.7" />
+      <module name="day15" target="1.5" />
+      <module name="day15_MyBatisPlus" target="1.5" />
+      <module name="day16_MyBatisPlus" target="1.5" />
+      <module name="day17_Spring_Annotation" target="1.5" />
+      <module name="day18_Spring_Servlet_Annotation" target="1.7" />
+      <module name="day18_SpringMVC_Annotation" target="1.7" />
+      <module name="day19_Git" target="1.5" />
+      <module name="mymaven" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

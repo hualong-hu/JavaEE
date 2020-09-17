@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--  1.配置User对象创建  -->
+    <bean id="user" class="org.bigjava.bean.User"/>
+
+<!--  2.使用set方法注入属性  -->
+    <bean id="book" class="org.bigjava.bean.Book">
+        <!--
+            使用property完成属性注入
+            name:类里面的属性名称
+            value：向属性注入的值
+        -->
+        <property name="name" value="逆天邪神"/>
+        <property name="author" value="火星老贼"/>
+    </bean>
+
+<!--  3.使用有参构造方法注入属性  -->
+    <bean id="book1" class="org.bigjava.bean.Book">
+        <constructor-arg name="author" value="鹅是老五"/>
+        <constructor-arg name="name" value="最强弃少"/>
+    </bean>
+
+<!--  4.使用p名称空间注入属性(需要先引入配置)（使用set方法）  -->
+    <bean id="book2" class="org.bigjava.bean.Book" p:name="造化之门" p:author="鹅是老五"/>
+
+<!--  5.注入空值和特殊符号  -->
+    <bean id="person1" class="org.bigjava.bean.Person">
+        <!--     属性值包含特殊字符
+                1.把< >进行转义 &lt; &gt;
+                2.把带特殊符号内容写到CDATA中
+        -->
+        <property name="name">
+            <value>
+                <![CDATA[<<刘雯静>>]]>
+            </value>
+        </property>
+
+        <property name="age" value="20"/>
+        <property name="height" value="160.2"/>
+
+        <!--    为属性注入空值    -->
+        <property name="address">
+            <null/>
+        </property>
+    </bean>
+
+
+
+</beans>

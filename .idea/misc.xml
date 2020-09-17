@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FindBugsConfigurable">
+    <option name="make" value="true" />
+    <option name="effort" value="default" />
+    <option name="priority" value="Medium" />
+    <option name="excludeFilter" value="" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/day14_Maven" />
+    <file type="web" url="file://$PROJECT_DIR$/day14_SSM" />
+    <file type="web" url="file://$PROJECT_DIR$/day18_SpringMVC_Annotation" />
+    <type id="Spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/day11/pom.xml" />
+        <option value="$PROJECT_DIR$/day14_Maven/day14_Maven/pom.xml" />
+        <option value="$PROJECT_DIR$/day14_SSM/pom.xml" />
+        <option value="$PROJECT_DIR$/day15_MyBatisPlus/pom.xml" />
+        <option value="$PROJECT_DIR$/day16_MyBatisPlus/pom.xml" />
+        <option value="$PROJECT_DIR$/day17_Spring_Annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day18_Spring_Servlet_Annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day18_SpringMVC_Annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/day19_Git/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SuppressionsComponent">
+    <option name="suppComments" value="[]" />
+  </component>
+</project>

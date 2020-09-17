@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day10_SpringMVC_File&amp;Interceptor&amp;Exception:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/day10_SpringMVC_File_Interceptor_Exception_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="day10_SpringMVC_File&amp;Interceptor&amp;Exception/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day10_SpringMVC_File&amp;Interceptor&amp;Exception" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="SpringMVC" />
+          <element id="library" level="module" name="commons-fileupload-1.2.1" module-name="day10_SpringMVC_File&amp;Interceptor&amp;Exception" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

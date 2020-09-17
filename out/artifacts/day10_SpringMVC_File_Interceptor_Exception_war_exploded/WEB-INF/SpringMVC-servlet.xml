@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <context:component-scan base-package="org.bigjava"/>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--  保证静态资源可以访问  -->
+    <mvc:default-servlet-handler/>
+    <!--  保证动态请求可以访问  -->
+    <mvc:annotation-driven/>
+
+    <!--  配置文件上传解析器  id必须是multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="#{1024*1024*20}"/>
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+
+    <!--  配置拦截器  -->
+    <mvc:interceptors>
+        <!--    配置某个拦截器，默认是拦截所有请求的。    -->
+<!--        <bean class="org.bigjava.interceptor.MyFirstInterceptor"/>-->
+
+        <!-- 配置某个拦截器更详细的信息 -->
+        <mvc:interceptor>
+            <!-- 只来拦截test2请求 -->
+            <mvc:mapping path="/test2"/>
+            <bean class="org.bigjava.interceptor.MySecondInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--    配置哪些异常去哪些页面    -->
+        <property name="exceptionMappings">
+            <props>
+                <!-- key:异常全类名；value：要去的页面视图名 -->
+                <prop key="java.lang.NullPointerException">myerror</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

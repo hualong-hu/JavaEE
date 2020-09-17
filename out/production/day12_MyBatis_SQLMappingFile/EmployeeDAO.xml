@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--该配置文件是DAO接口的实现文件，描述DAO中每个方法是如果工作的-->
+<!--namespace：名称空间，写接口的全类名，相当于告诉MyBatis这个配置文件是实现哪个接口的-->
+<mapper namespace="org.bigjava.dao.EmployeeDAO">
+    <!--
+        Employee getEmployeeById(Integer id);
+        select:用来定义一个查询操作
+        id：方法名，相当于这个配置对于某个方法的实现
+        resultType：指定方法运行后的返回值类型（查询操作必须指定的，写全类名）
+        #{属性名}：代表取出传递过来的某个参数的值
+    -->
+    <select id="getEmployeeById" resultType="org.bigjava.bean.Employee">
+        #        sql语句不要写分号
+        select * from mybatis_0228.t_employee where id = #{id}
+    </select>
+
+<!--  ***************************************************************************  -->
+
+<!--
+     Employee getEmployeeByIdAndName(@Param("id")Integer id,@Param("name")String name);
+     关于查询的各种参数取值
+        1、单个参数：
+            取值为 #{属性名}
+        2、多个参数
+            取值：#{参数名}无效
+            可用：0,1或者param1，param2
+            原因：只要传入了多个参数，mybatis会自动将这些参数封装在一个map中
+                 封装时使用的key就是参数的索引和参数的第几个标识
+                 Map<String,Object> map = new HashMap<>();
+                 map.put("1",传入的值);map.put("2",传入的值)
+             #{key}就是从这个map中取值；
+        3、@Param：在DAO中为参数指定key，（推荐使用）
+            我们可以告诉mybatis，封装参数mao的时候别乱来，使用我们指定的key
+        4、传入POJO（JavaBean）
+            取值：#{POJO的属性名}
+        5、传入map：将多个要使用的参数封装成一个map(不推荐使用)
+            取值：#{key}
+
+        扩展：多个参数自动封装成map
+        method(@Param(@Param("id")Integer id,@Param("name")String name,Employee employee);
+        Integer id -> #{id}或 #{param1}
+        String name -> #{name}或 #{param2}
+        Employee employee(取出这个对象里面的email) -> #{param3.email}
+
+        无论传入什么参数都要能正确的取出值：#{key/属性名}
+
+        《==========================================》
+
+        mybatis的两种取值方式：${ } 和 #{ }
+        #{属性名}：是参数预编译的方式，参数的位置都是用占位符(?)代替，参数后来都是预编译设置进去的；
+                  安全，没有sql注入的问题
+        ${属性名}：不是参数预编译1，而是直接和sql语句进行拼接；不安全，存在sql注入的问题
+        一般都是使用#{},在不支持参数预编译的位置要进行取值就用${};
+-->
+    <select id="getEmployeeByIdAndName" resultType="org.bigjava.bean.Employee">
+        select * from mybatis_0228.t_employee where id = #{id} and name = #{name}
+    </select>
+
+<!--  ***************************************************************************  -->
+
+    <!--
+        Employee getAllEmployees();
+        resultType="org.bigjava.bean.Employee"：如果返回的是集合，写的是集合里面元素的类型
+     -->
+    <select id="getAllEmployees" resultType="org.bigjava.bean.Employee">
+        select * from mybatis_0228.t_employee
+    </select>
+
+<!--  ***************************************************************************  -->
+
+    <!--
+        List<Employee> getAllEmployeesResultMap();
+        resultType="org.bigjava.bean.Employee"：使用默认规则，JavaBean的属性和列名要一一对应
+        resultMap="myResultMap"：查出数据封装结果的时候，使用myResultMap自定义的规则
+
+        自定义结果集（resultMap），自己定义每一列数据和Javabean的映射规则
+            type="org.bigjava.bean.Employee"：指定为哪个Javabean自定义封装规则，写全类名
+            id="myResultMap"：唯一标识，让别名在resultMap=" "处使用
+        1、定义主键列的对应规则
+          id标签：
+            column=""：指定数据中哪列是主键列
+            property="" 指定Javabean中哪个属性封装主键列的数据
+        2、定义普通列
+          result标签：
+            property="" Javabean中的属性名
+            column="" 数据库中的列名
+    -->
+    <select id="getAllEmployeesResultMap" resultMap="myResultMap">
+        select * from mybatis_0228.t_employee
+    </select>
+    <resultMap id="myResultMap" type="org.bigjava.bean.Employee">
+        <id property="id" column="id"/>
+        <result property="myHobby" column="hobby"/>
+        <result property="myAge" column="age"/>
+    </resultMap>
+
+<!--  ***************************************************************************  -->
+
+    <!--
+        int insertEmployee(Employee employee);
+
+        让MyBatis自动将数据库自增的值，赋给传入的employee对象的id属性(只适用于insert与update)
+            1、useGeneratedKeys="true"：原生jdbc获取自增主键的方法
+            2、keyProperty="id"：将数据库中的主键封装给employee的id属性
+
+    -->
+    <insert id="insertEmployee" useGeneratedKeys="true" keyProperty="id">
+        insert into mybatis_0228.t_employee(name, gender, email)
+        values (#{name},#{gender},#{email})
+    </insert>
+
+    <!--  int updateEmployee(Employee employee);  -->
+    <update id="updateEmployee" useGeneratedKeys="true" keyProperty="id">
+        update mybatis_0228.t_employee set name=#{name},gender=#{gender},email=#{email}
+        where id=#{id}
+    </update>
+
+<!--  ***************************************************************************  -->
+
+    <!--  int deleteEmployee(Integer id);  -->
+    <delete id="deleteEmployee">
+        delete from mybatis_0228.t_employee where id = #{id}
+    </delete>
+
+
+</mapper>
