@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="day20_Redis" />
+        <module name="day17_Spring_Annotation" />
+        <module name="day16_MyBatisPlus" />
         <module name="day15_MyBatisPlus" />
         <module name="day14_SSM" />
-        <module name="day17_Spring_Annotation" />
         <module name="day19_Git" />
-        <module name="day16_MyBatisPlus" />
         <module name="day18_SpringMVC_Annotation" />
       </profile>
     </annotationProcessing>
@@ -27,6 +28,7 @@
       <module name="day18_Spring_Servlet_Annotation" target="1.7" />
       <module name="day18_SpringMVC_Annotation" target="1.7" />
       <module name="day19_Git" target="1.5" />
+      <module name="day20_Redis" target="1.5" />
       <module name="mymaven" target="1.5" />
     </bytecodeTargetLevel>
   </component>
