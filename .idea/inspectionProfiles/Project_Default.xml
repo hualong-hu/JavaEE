@@ -31,7 +31,7 @@
       <option name="IGNORE_JAVADOC_PERIOD" value="true" />
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
-      <option name="myAdditionalJavadocTags" value="date,ProjectName:,ClassName:,Description:,Author:,Date:,Version,params:,return:,method:,data:,Controller：标识哪个组件是控制器,RequestMapping模糊匹配功能,RequestParam：获取请求参数的,RequestParam：,CookieValue：,RequestHeader：,RequestParam(&quot;user&quot;),RequestHeader(&quot;User-Agent&quot;),CookieValue(&quot;JSESSIONID&quot;),ModelAttribute,DateTimeFormat,Past,Future,ResponseBody,JsonFormat(pattern,JsonFormat,RequestBody,RequestParam,param:,mbg.generated,TableId,Bean,PostConstruct,PreDestroy,Resource,Inject,profile,Before,After,AfterReturning,AfterThrowing,Around" />
+      <option name="myAdditionalJavadocTags" value="date,ProjectName:,ClassName:,Description:,Author:,Date:,Version,params:,return:,method:,data:,Controller：标识哪个组件是控制器,RequestMapping模糊匹配功能,RequestParam：获取请求参数的,RequestParam：,CookieValue：,RequestHeader：,RequestParam(&quot;user&quot;),RequestHeader(&quot;User-Agent&quot;),CookieValue(&quot;JSESSIONID&quot;),ModelAttribute,DateTimeFormat,Past,Future,ResponseBody,JsonFormat(pattern,JsonFormat,RequestBody,RequestParam,param:,mbg.generated,TableId,Bean,PostConstruct,PreDestroy,Resource,Inject,profile,Before,After,AfterReturning,AfterThrowing,Around,Entity,Table,Id,GeneratedValue,Column,Transactional,Query,Modifying,Rollback" />
     </inspection_tool>
   </profile>
 </component>

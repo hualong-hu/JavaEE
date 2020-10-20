@@ -123,6 +123,7 @@
             $("#checkAll").click(function () {
                 $(".checkItem").prop("checked",$(this).prop("checked"));
             })
+
             $(document).on("click",".checkItem",function () {
                 var b1 = $(".checkItem:checked").length === $(".checkItem").length;
                 $("#checkAll").prop("checked",b1);

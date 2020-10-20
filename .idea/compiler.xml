@@ -9,9 +9,12 @@
         <module name="day20_Redis" />
         <module name="day17_Spring_Annotation" />
         <module name="day16_MyBatisPlus" />
+        <module name="day21_JPA" />
         <module name="day15_MyBatisPlus" />
         <module name="day14_SSM" />
         <module name="day19_Git" />
+        <module name="day23_SpringDataJPA" />
+        <module name="day22_SpringDataJPA" />
         <module name="day18_SpringMVC_Annotation" />
       </profile>
     </annotationProcessing>
@@ -29,6 +32,9 @@
       <module name="day18_SpringMVC_Annotation" target="1.7" />
       <module name="day19_Git" target="1.5" />
       <module name="day20_Redis" target="1.5" />
+      <module name="day21_JPA" target="1.5" />
+      <module name="day22_SpringDataJPA" target="1.5" />
+      <module name="day23_SpringDataJPA" target="1.5" />
       <module name="mymaven" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -25,6 +25,10 @@
         <option value="$PROJECT_DIR$/day18_SpringMVC_Annotation/pom.xml" />
         <option value="$PROJECT_DIR$/day19_Git/pom.xml" />
         <option value="$PROJECT_DIR$/day20_Redis/pom.xml" />
+        <option value="$PROJECT_DIR$/day20_JPA/pom.xml" />
+        <option value="$PROJECT_DIR$/day21_JPA/pom.xml" />
+        <option value="$PROJECT_DIR$/day22_SpringDataJPA/pom.xml" />
+        <option value="$PROJECT_DIR$/day23_SpringDataJPA/pom.xml" />
       </list>
     </option>
   </component>

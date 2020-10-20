@@ -22,6 +22,9 @@
       <module fileurl="file://$PROJECT_DIR$/day18_SpringMVC_Annotation/day18_SpringMVC_Annotation.iml" filepath="$PROJECT_DIR$/day18_SpringMVC_Annotation/day18_SpringMVC_Annotation.iml" />
       <module fileurl="file://$PROJECT_DIR$/day19_Git/day19_Git.iml" filepath="$PROJECT_DIR$/day19_Git/day19_Git.iml" />
       <module fileurl="file://$PROJECT_DIR$/day20_Redis/day20_Redis.iml" filepath="$PROJECT_DIR$/day20_Redis/day20_Redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day21_JPA/day21_JPA.iml" filepath="$PROJECT_DIR$/day21_JPA/day21_JPA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day22_SpringDataJPA/day22_SpringDataJPA.iml" filepath="$PROJECT_DIR$/day22_SpringDataJPA/day22_SpringDataJPA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day23_SpringDataJPA/day23_SpringDataJPA.iml" filepath="$PROJECT_DIR$/day23_SpringDataJPA/day23_SpringDataJPA.iml" />
     </modules>
   </component>
 </project>

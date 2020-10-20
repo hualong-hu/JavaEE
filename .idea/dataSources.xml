@@ -7,5 +7,17 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/mysql</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="47.115.191.242" uuid="5a764ab8-1fd5-4bc8-a20c-8f814a172026">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://47.115.191.242:3306/jpa</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="腾讯云" uuid="d83308ed-d709-4ff7-9fff-6ce0f0afd878">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://150.158.5.94:3306/mysql</jdbc-url>
+    </data-source>
   </component>
 </project>
