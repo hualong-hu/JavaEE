@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="org.bigjava.service.impl"/>
+
+    <dubbo:application name="day25_Dubbo_consumer"/>
+
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <!-- 声明需要调用的远程服务的接口，生成远程服务代理-->
+    <!--
+        定义规则的优先级别！
+        1）、精确优先（方法级优先，接口级次之，全局配置再次之）
+        2）、消费者设置优先（如果级别一样，则消费方优先，提供方次之）
+     -->
+    <!--
+        timeout="0"：默认是1000毫秒
+        retries=""：重试次数，不包含第一次调用,0代表不重试
+        幂等（设置重试次数）：查询、删除、更新
+        非幂等（不能设置重试次数）：插入
+     -->
+    <dubbo:reference id="userService" interface="bigjava.service.UserService"
+    timeout="1000" retries="3"/>
+
+    <!-- 配置当前消费者的统一规则 ：所有的服务都不检查-->
+    <dubbo:consumer check="false"/>
+
+    <!-- 连接服务中心 -->
+    <dubbo:monitor protocol="registry"/>
+</beans>

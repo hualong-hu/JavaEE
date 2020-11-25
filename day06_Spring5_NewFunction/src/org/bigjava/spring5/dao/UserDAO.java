@@ -10,7 +10,6 @@ package org.bigjava.spring5.dao;
  */
 public interface UserDAO {
     void reduceMoney();
-
     void addMoney();
 
 }

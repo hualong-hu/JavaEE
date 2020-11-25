@@ -1,6 +1,5 @@
 package org.bigjava.jpa;
 
-import com.sun.xml.fastinfoset.algorithm.FloatEncodingAlgorithm;
 import org.bigjava.bean.Customer;
 import org.bigjava.utils.JPAUtils;
 import org.junit.Test;

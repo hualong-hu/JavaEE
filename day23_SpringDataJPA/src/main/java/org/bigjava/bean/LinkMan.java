@@ -15,12 +15,37 @@ import javax.persistence.*;
 public class LinkMan {
 
     /**
+     * 配置多对一关系
+     *  使用注解的形式配置多对一关系
+     *      1、配置表关系
+     *        @ManyToOne ： 配置多对一关系
+     *          targetEntity：对方实体类的字节码
+     *      2、配置外键（中间表）
+     *
+     *  配置外键的过程中，配置到了多的衣服，就会在多的一方维护外键！，
+     *
+     */
+
+    @ManyToOne(targetEntity = Customer.class)
+    @JoinColumn(name = "lkm_cust_id",referencedColumnName = "cust_id")
+    private Customer customer;
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    /**
      *  联系人ID
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "lkm_id")
     private Integer lkmId;
+
     /**
      *  联系人姓名
      */

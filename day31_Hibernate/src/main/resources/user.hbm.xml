@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.bigjava.entity.User" table="t_user">
+        <id name="user_id" column="user_id">
+            <generator class="native"/>
+        </id>
+        <property name="user_name" column="user_name"/>
+        <property name="user_password" column="user_password"/>
+
+        <!--
+            在用户里面表示所有的角色
+            name：角色set集合名称
+            table：第三张表名称
+         -->
+        <set name="setRole" table="user_role" cascade="save-update delete" >
+            <!--
+                key标签里面的配置
+                column：配置当前映射文件在第三张表外键名称
+             -->
+            <key column="userid"/>
+            <!--
+                class：角色实体类的全类名
+                column：角色在第三张表外键名称
+             -->
+            <many-to-many column="roleid" class="org.bigjava.entity.Role"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>

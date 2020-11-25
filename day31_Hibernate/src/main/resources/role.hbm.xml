@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="org.bigjava.entity.Role" table="t_role">
+        <id name="role_id" column="role_id">
+            <generator class="native"/>
+        </id>
+        <property name="role_memo" column="role_memo"/>
+        <property name="role_name" column="role_name"/>
+
+        <set name="setUser" table="user_role">
+            <key column="roleid"/>
+            <many-to-many class="org.bigjava.entity.User" column="userid"/>
+        </set>
+
+
+    </class>
+
+</hibernate-mapping>

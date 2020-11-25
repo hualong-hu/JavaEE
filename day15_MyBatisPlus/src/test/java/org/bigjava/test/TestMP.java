@@ -57,7 +57,7 @@ public class TestMP {
         //1、selectById：通过id查询
 //        Employee employee = employeeMapper.selectById(1);
 
-        //2、selectOne：通过多个列进行查询（id+lastName）：最多只能查一条数据
+        //2、selectOne：通过多个列进行查询（id+lastName）：最多只能查一条数据、、。
 //        Employee employee = new Employee();
 //        employee.setId(5);
 //        employee.setLastName("断念");

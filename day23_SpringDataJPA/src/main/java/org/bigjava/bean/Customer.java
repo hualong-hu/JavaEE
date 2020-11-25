@@ -1,6 +1,8 @@
 package org.bigjava.bean;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @ProjectName: JavaEE
@@ -20,6 +22,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cst_customer")
 public class Customer {
+
     /**
      *  客户的主键
      *  @Id -> 声明主键的配置
@@ -72,6 +75,30 @@ public class Customer {
     @Column(name = "cust_address")
     private String custAddress;
 
+    /**
+     *  配置一对多关系
+     *      1、声明关系：
+     *          @OneToMany : 配置一对多关系
+     *              targetEntity ： 对方对象的字节码对象
+     *               mappedBy ：放弃外键维护权 对方配置关系的属性名称
+     *               cascade : 配置级联（CascadeType.ALL）（可以配置到设置多表的映射关系的注解、上）
+     *      2、配置外键（中间表）
+     *          @JoinColumn : 配置外键
+     *              name ：外键字段名称
+     *              referencedColumnName ： 参照的主表的主键字段名称
+     *
+     * 在一的一方添加了外键配置，所有对于多的一方而言，也具备了维护外键的作用
+     *
+     *
+     *
+     */
+//    @OneToMany(targetEntity = LinkMan.class)
+//    @JoinColumn(name = "lkm_cust_id",referencedColumnName = "cust_id")
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private Set<LinkMan> linkMan = new HashSet<LinkMan>();
+
+
+
     public Customer(Integer custId, String custName, String custSource, String custLevel, String custIndustry, String custPhone, String custAddress) {
         this.custId = custId;
         this.custName = custName;
@@ -96,6 +123,14 @@ public class Customer {
                 ", custPhone='" + custPhone + '\'' +
                 ", custAddress='" + custAddress + '\'' +
                 '}';
+    }
+
+    public Set<LinkMan> getLinkMan() {
+        return linkMan;
+    }
+
+    public void setLinkMan(Set<LinkMan> linkMan) {
+        this.linkMan = linkMan;
     }
 
     public Integer getCustId() {
