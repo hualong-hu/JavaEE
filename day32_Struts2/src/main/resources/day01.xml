@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!--  修改struts2默认常量值  -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!--
+   package标签：
+       name：跟功能本身没有关系，在一个配置文件中可以写多个packer标签，name属性值不能相同
+       extends：属性值固定：struts-default；写了这个属性后，在package里面配置的类具有action功能
+       namespace：属性值要和action标签里面的name属性值构成访问路径
+     -->
+    <package name="helloDemo" extends="struts-default" namespace="/">
+        <!--
+        action标签：
+            name：访问名称，属性值要和package标签里面的namespace属性值构成访问路径，
+                  在package标签里面可以写多个action标签，但是action的name属性值不能相同
+            class：action类的全路径
+            method：让action里面多个方法执行，使用method进行配置
+         -->
+        <action name="test1" class="org.bigjava.action.HelloStruts2">
+            <!--
+            result标签：根据action的方法返回值，配置到不同的路径里面
+                name：和方法的返回值一致
+                type：配置如何到路径中去（转发或重定向），默认是请求转发
+                    默认值是请求转发：dispatcher
+                    重定向：redirect
+            -->
+            <result name="ok">/success.jsp</result>
+        </action>
+        <!--  =============================================================================  -->
+        <action name="test2" class="org.bigjava.action.HelloStruts2" method="add">
+            <!--            <result name="">/success.jsp</result>-->
+        </action>
+        <!--  =============================================================================  -->
+        <action name="*" method="{1}" class="org.bigjava.action.HelloStruts2">
+
+        </action>
+    </package>
+
+</struts>

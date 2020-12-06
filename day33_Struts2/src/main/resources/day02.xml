@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="day04" namespace="/" extends="struts-default">
+        <!-- 在要拦截的action标签所在的package标签里面声明拦截器  -->
+        <interceptors>
+            <interceptor name="test1" class="org.bigjava.config.MyInterceptor"/>
+        </interceptors>
+
+
+        <global-results>
+            <result name="input">error.jsp</result>
+        </global-results>
+        <!-- 全局异常映射 -->
+        <global-exception-mappings>
+            <!--
+                exception：此属性指定该异常映射所设置的异常类型。
+                result：此属性指定Action出现该异常时，系统转入result属性所指向的结果
+             -->
+            <exception-mapping exception="java.lang.RuntimeException" result="input"/>
+        </global-exception-mappings>
+
+        <action name="*" class="org.bigjava.action.Login" method="{1}">
+            <!-- 在具体的action标签里面使用声明的拦截器 -->
+            <interceptor-ref name="test1">
+            <!--
+            直接通过配置方式让action里面某些方法不进行拦截
+                name值固定：excludeMethods
+                值：需要拦截的方法名称
+            -->
+                <param name="excludeMethods">login</param>
+            </interceptor-ref>
+<!--            struts2里面执行很多的默认拦截器，但是如果在action里面配置自定义拦截器，-->
+<!--            问题：默认的拦截器不会执行了-->
+<!--            解决：把默认拦截器手动使用一次-->
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">success.jsp</result>
+            <result name="error">InterceptorTest.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

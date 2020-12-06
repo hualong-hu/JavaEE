@@ -32,11 +32,11 @@
     <input type="submit" value="添加一号图书"/>
 </form><br/>
 <form action="book/1" method="post">
-    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="删除一号图书"/>
 </form><br/>
 <form action="book/1" method="post">
-    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="_method" value="PUT">
     <input type="submit" value="更新一号图书"/>
 </form><br/>
 

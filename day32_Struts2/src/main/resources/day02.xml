@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="testDemo1" extends="struts-default" namespace="/">
+        <!--
+        如果多个action，方法里面返回值相同的，到页面也是相同的，这个时候可以使用全局结果页面配置
+        该配置只在此package标签内生效
+        全局结果页面配置
+        -->
+        <global-results>
+            <result name="success">/success.jsp</result>
+        </global-results>
+
+        <action name="testAction1" class="org.bigjava.action.TestAction1">
+            <!--
+            result标签：根据action的方法返回值，配置到不同的路径里面
+                name：和方法的返回值一致
+                type：配置如何到路径中去（转发或重定向），默认是请求转发
+                    默认值是请求转发：dispatcher
+                    重定向：redirect
+                    redirectAction：表示重定向到另一个action，填另一个action的name值
+            -->
+            <!--  type的属性值redirectAction：表示重定向到另一个action，填另一个action的name值 -->
+            <result name="success" type="redirectAction">testAction2</result>
+        </action>
+        <action name="testAction2" class="org.bigjava.action.TestAction2">
+            <result name="success" type="redirect">/hello.jsp</result>
+        </action>
+
+    </package>
+
+<!--  ========================================================  -->
+    <package name="form1" extends="struts-default" namespace="/">
+        <action name="testForm1" class="org.bigjava.action.FormTest1">
+            <result name="success">/success.jsp</result>
+        </action>
+
+        <action name="testForm2" class="org.bigjava.action.FormTest2">
+            <result name="success">/success.jsp</result>
+        </action>
+
+        <action name="testForm3" class="org.bigjava.action.FormTest3">
+            <result name="success">/success.jsp</result>
+        </action>
+    </package>
+
+</struts>

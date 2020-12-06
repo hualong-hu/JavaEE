@@ -1,5 +1,7 @@
 package org.bigjava.bean;
 
+import com.alibaba.druid.support.json.JSONUtils;
+
 /**
  * @ProjectName: JavaEE
  * @ClassName: Employee
@@ -9,7 +11,6 @@ package org.bigjava.bean;
  * @Version v1.0
  */
 public class Employee {
-
     private String name;
     private String sex;
     private Department department;

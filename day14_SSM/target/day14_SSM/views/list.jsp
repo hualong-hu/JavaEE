@@ -227,8 +227,6 @@
                 type:"GET",
                 success:function (result) {
                     $.each(result,function(){
-                        // var departmentInfo = this.departmentName;
-                        //  $("#departmentOption").append("<option>"+empInfo+"<option/>");
                         var optionElement = $("<option></option>").append(this.departmentName).attr("value",this.departmentId);
                         optionElement.appendTo(element);
                     });
